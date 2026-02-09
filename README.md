@@ -1,4 +1,4 @@
-# simple-session
+# simple-session.nvim
 
 A simple and easy to use Neovim plugin to manage sessions:
 
