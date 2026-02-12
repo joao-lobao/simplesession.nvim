@@ -10,6 +10,8 @@ Each of the 3 commands will prompt you for a session name. Auto completion for
 saved sessions is supported. Just make sure `config.session_dir =
 {your-saved-sessions-directory}` so it is set to your prefered directory to
 store your sessions.
+By default every session is saved on exit automatically, but you can disable it
+on plugins `config`.
 
 ## Installation
 
