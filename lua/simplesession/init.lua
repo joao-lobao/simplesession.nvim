@@ -2,7 +2,7 @@ local M = {}
 
 -- default config
 M.config = {
-	session_dir = vim.fn.stdpath("config") .. "/session/",
+	session_dir = vim.fn.stdpath("data") .. "/session/",
 	save_session_on_exit = true,
 	keymaps = {
 		load = "",
