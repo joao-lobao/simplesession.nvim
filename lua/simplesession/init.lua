@@ -30,13 +30,12 @@ local function save()
 	local session = vim.fn.fnamemodify(vim.v.this_session, ":t")
 
 	if session == "" or not session_exists(session) then
-		vim.notify("No session is loaded", vim.log.levels.INFO)
 		return
 	end
 
 	ensure_dir()
 	vim.cmd("mksession! " .. M.config.session_dir .. session)
-	vim.notify(session .. " session saved", vim.log.levels.INFO)
+	vim.notify(" - " .. session .. " session saved", vim.log.levels.INFO)
 end
 
 -- load session
@@ -44,12 +43,12 @@ function M.load()
 	local session = vim.fn.input("Load session: ", "", "customlist,v:lua.complete_sessions")
 
 	if not session or session == "" then
-		vim.notify("Session name required", vim.log.levels.ERROR)
+		vim.notify(" Session name required", vim.log.levels.ERROR)
 		return
 	end
 
 	if not session_exists(session) then
-		vim.notify(session .. " session does not exist", vim.log.levels.ERROR)
+		vim.notify(" " .. session .. " session does not exist", vim.log.levels.ERROR)
 		return
 	end
 
@@ -63,12 +62,12 @@ function M.create()
 	local session = vim.fn.input("Create session: ", "", "customlist,v:lua.complete_sessions")
 
 	if not session or session == "" then
-		vim.notify("Session name required", vim.log.levels.ERROR)
+		vim.notify(" Session name required", vim.log.levels.ERROR)
 		return
 	end
 
 	if session_exists(session) then
-		vim.notify("Session with name " .. session .. " already exists", vim.log.levels.ERROR)
+		vim.notify(" Session with name " .. session .. " already exists", vim.log.levels.ERROR)
 		return
 	end
 
@@ -81,12 +80,12 @@ function M.delete()
 	local session = vim.fn.input("Delete session: ", "", "customlist,v:lua.complete_sessions")
 
 	if not session or session == "" then
-		vim.notify("Session name required", vim.log.levels.ERROR)
+		vim.notify(" Session name required", vim.log.levels.ERROR)
 		return
 	end
 
 	if not session_exists(session) then
-		vim.notify(session .. " session does not exist", vim.log.levels.ERROR)
+		vim.notify(" " .. session .. " session does not exist", vim.log.levels.ERROR)
 		return
 	end
 
